@@ -1,0 +1,143 @@
+﻿<Window x:Class="RequestTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RequestTool"
+        mc:Ignorable="d"
+        Title="解析请求工具" Height="666" Width="1200"    Background="White"  Icon="Images/logo.ico">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="200" Width="330"></ColumnDefinition>
+            <ColumnDefinition Width="15"></ColumnDefinition>
+            <ColumnDefinition MinWidth="300" Width="350"></ColumnDefinition>
+            <ColumnDefinition Width="15"></ColumnDefinition>
+            <ColumnDefinition MinWidth="250"  Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition   Height="30"></RowDefinition>
+                <RowDefinition Height="300"></RowDefinition>
+                <RowDefinition   Height="30"></RowDefinition>
+                <RowDefinition   Height="30"></RowDefinition>
+                <RowDefinition   Height="30"></RowDefinition>
+                <RowDefinition   Height="30"></RowDefinition>
+                <RowDefinition   Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Grid.ColumnSpan="3"  HorizontalAlignment="Left"  Margin="10,0,0,0">Request Data</TextBlock>
+
+            <TextBox x:Name="tbRequestContent"  Grid.Row="1" Grid.ColumnSpan="3"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" TextWrapping="Wrap"    AcceptsReturn="True"  VerticalScrollBarVisibility="Visible" Margin="8,0,0,8"
+             />
+
+            <TextBox  Grid.Row="2" Grid.Column="1"  x:Name="tbOriginalPrefix" VerticalAlignment="Center"  HorizontalAlignment="Stretch"  TextWrapping="NoWrap" MinWidth="100" LostFocus="tbLostFocus" ></TextBox>
+            
+            <TextBox  Grid.Row="3" Grid.Column="1"  x:Name="tbOriginalPrefix2" VerticalAlignment="Center"  HorizontalAlignment="Stretch"  TextWrapping="NoWrap" MinWidth="100" LostFocus="tbLostFocus" ></TextBox>
+            
+            <TextBox  Grid.Row="4" Grid.Column="1"  x:Name="tbOriginalPrefix3" VerticalAlignment="Center"  HorizontalAlignment="Stretch"  TextWrapping="NoWrap" MinWidth="100" LostFocus="tbLostFocus" ></TextBox>
+            
+            <TextBox  Grid.Row="5" Grid.Column="1"  x:Name="tbOriginalPrefix4" VerticalAlignment="Center"  HorizontalAlignment="Stretch"  TextWrapping="NoWrap" MinWidth="100" LostFocus="tbLostFocus" ></TextBox>
+
+            <Button x:Name="btnAnalysis" Content="解析"   Grid.Row="6" Grid.ColumnSpan="2"  Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="120" Click="btnAnalysis_Click"/>
+        </Grid>
+
+
+        <GridSplitter x:Name="splitterLeft" Grid.Column="1" Width="2"  Background="#FFF0F0F0" HorizontalAlignment="Center" VerticalAlignment="Stretch"  MouseEnter="splitterLeft_MouseEnter" MouseLeave="splitterLeft_MouseLeave"/>
+
+        <Grid Grid.Column="2">
+            <!--定义两行-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50" MinHeight="50"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--定义三列-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0">请求URL</TextBlock>
+            <TextBox  Grid.Row="0" Grid.Column="1"  x:Name="tbOriginalURL" VerticalAlignment="Center" HorizontalAlignment="Stretch"  TextWrapping="Wrap" MinWidth="200"></TextBox>
+
+
+            <!--<TextBlock  Grid.Row="2"  Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,10,0,0">Request Data</TextBlock>-->
+
+
+            <StackPanel    Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal"  VerticalAlignment="Center"  HorizontalAlignment="Left" >
+
+                <ComboBox x:Name="cbRequestType"  HorizontalAlignment="Left"  VerticalAlignment="Center" Width="70" Height="30" Padding="10,0,0,0" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14">
+                    <ComboBoxItem Name="ciGet" Content="GET" IsSelected="True" Padding="10,0,0,0" ></ComboBoxItem>
+                    <ComboBoxItem Name="ciPost" Content="POST" Padding="10,0,0,0" ></ComboBoxItem>
+                </ComboBox>
+
+                <RadioButton x:Name="rbNone" GroupName="rbRequestDataType" Content="None" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0"  IsChecked="True" />
+                <RadioButton x:Name="rbQuery" GroupName="rbRequestDataType" Content="Query" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0" Checked="rbQuery_Checked" />
+                <RadioButton x:Name="rbForm" GroupName="rbRequestDataType" Content="Form" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="10,0,0,0" />
+                <RadioButton x:Name="rbJson" GroupName="rbRequestDataType" Content="Json" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="10,0,0,0" />
+            </StackPanel>
+
+
+
+            <TextBox Grid.Row="3" Grid.ColumnSpan="2" 
+                    Name="tbRequestData"  HorizontalAlignment="Stretch"   TextWrapping="Wrap" VerticalAlignment="Stretch" MinWidth="220"   AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"  Margin="0,0,0,20" TextChanged="tbRequestData_TextChanged" ></TextBox>
+
+
+            <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal"  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0">
+
+                <Button x:Name="btnPostOld" Content="发起请求"    Width="120" Margin="0,0,0,0" Click="btnPostOld_Click"/>
+
+            </StackPanel>
+            <TextBlock  Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,11,5,24"><Run Text="cookies"/></TextBlock>
+            <TextBox  Grid.Row="1" Grid.Column="1"  x:Name="tbCookies" VerticalAlignment="Center" HorizontalAlignment="Stretch"  TextWrapping="Wrap" MinWidth="200" Margin="0,10,0,22"/>
+        </Grid>
+
+        <GridSplitter  Grid.Column="3" Width="2"  HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#FFF0F0F0" MouseEnter="splitterLeft_MouseEnter" MouseLeave="splitterLeft_MouseLeave"/>
+
+        <Grid Grid.Column="4">
+            <TabControl Name="TabControl1" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch">
+                <TabItem x:Name="tiOriginalResponse" Header="响应信息">
+                    <RichTextBox  x:Name="rtbOriginalResponse" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" VerticalScrollBarVisibility="Auto">
+                        <RichTextBox.Resources>
+                            <Style TargetType="{x:Type Paragraph}">
+                                <Setter Property="Margin" Value="0"/>
+                                <Setter Property="LineHeight" Value="20"/>
+                            </Style>
+                        </RichTextBox.Resources>
+                        <FlowDocument/>
+                    </RichTextBox>
+                </TabItem>
+                <TabItem x:Name="tiNewResponse" Header="新">
+                    <RichTextBox  x:Name="rtbNewResponse" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
+                        <RichTextBox.Resources>
+                            <Style TargetType="{x:Type Paragraph}">
+                                <Setter Property="Margin" Value="0"/>
+                                <Setter Property="LineHeight" Value="20"/>
+                            </Style>
+                        </RichTextBox.Resources>
+                        <FlowDocument/>
+                    </RichTextBox>
+                </TabItem>
+            </TabControl>
+
+
+
+
+
+        </Grid>
+
+
+
+
+
+    </Grid>
+</Window>
