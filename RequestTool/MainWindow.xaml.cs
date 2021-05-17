@@ -38,11 +38,10 @@ namespace RequestTool
 
         private Regex jsonRegex = new Regex("{.*}$", RegexOptions.Multiline);
 
-
-        private Regex Red_BlueRegex = new Regex(@"(\s*"".+?"")(:)(\s"".*?"")(,?)");
+        private Regex Red_BlueRegex = new Regex(@"(\s*"".+?"")(:)(\s"".*?"")(,?)$");
         private Regex Red_GreenRegex = new Regex(@"(\s*"".+?"")(:)(\s[^""\s\{\[,]+)(,?)");
         private Regex Red_BlackRegex = new Regex(@"(\s*"".+?"")(:)(\s[\[\{\}\]]+)");
-        private Regex RedBlackRegex = new Regex(@"(^\s*""[^:""]*"")(,?)$");
+        private Regex RedBlackRegex = new Regex(@"(^\s*""[^""]*"")(,?)$");
         private Regex GreenBlackRegex = new Regex(@"(^\s*[-.\d]+)(,?)$");
 
         private void btnAnalysis_Click(object sender, RoutedEventArgs e)
