@@ -34,7 +34,7 @@ namespace RequestTool
         private Regex ChromeRequestRegex = new Regex(@"^(?<key>[^{}\[\]:]+?):(?<value>.+?)$", RegexOptions.Multiline);
         //private Regex TopRequestRegex = new Regex(@"^(?<key>.+?)=>(?<value>.+?)$", RegexOptions.Multiline);  //以前测试或前端会给这个, 目前暂不考虑
 
-        private Regex cookieRegex = new Regex("^cookie:.*", RegexOptions.Multiline);
+        private Regex cookieRegex = new Regex("^cookie:.*", RegexOptions.IgnoreCase | RegexOptions.Multiline);
 
         private Regex jsonRegex = new Regex("{.*}$", RegexOptions.Multiline);
 
