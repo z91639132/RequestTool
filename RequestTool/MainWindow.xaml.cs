@@ -606,5 +606,6 @@ namespace RequestTool
             splitter.Width = 2;
             splitter.Background = new SolidColorBrush(Color.FromRgb(240, 240, 240));//灰色  FFF0F0F0
         }
+
     }
 }

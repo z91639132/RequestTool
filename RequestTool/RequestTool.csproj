@@ -104,7 +104,7 @@
     <Resource Include="Images\logo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CsharpHttpHelper\CsharpHttpHelper.csproj">
+    <ProjectReference Include="..\..\DavisZhangLibrary\CsharpHttpHelper\CsharpHttpHelper.csproj">
       <Project>{966c2f8b-47e5-4e6d-abfc-13501e739d25}</Project>
       <Name>CsharpHttpHelper</Name>
     </ProjectReference>

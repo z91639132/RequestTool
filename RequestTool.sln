@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestTool", "RequestTool\RequestTool.csproj", "{41C8ED8A-A065-44C2-8517-AE305AF0BCED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpHttpHelper", "CsharpHttpHelper\CsharpHttpHelper.csproj", "{966C2F8B-47E5-4E6D-ABFC-13501E739D25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpHttpHelper", "..\DavisZhangLibrary\CsharpHttpHelper\CsharpHttpHelper.csproj", "{966C2F8B-47E5-4E6D-ABFC-13501E739D25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
