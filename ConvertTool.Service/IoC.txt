@@ -1,0 +1,15 @@
+﻿[
+    {
+        "name": "MyOA.URIResource.Node",
+        "type": "ConvertTool.Service.Node",
+        "assembly": "ConvertTool.Service",
+        "mode": "singleton",
+        "property": {
+            "AssemblyDefault": "ConvertTool.Service",
+            "Prefix": {
+            },
+            "KV": {
+            }
+        }
+    }
+]

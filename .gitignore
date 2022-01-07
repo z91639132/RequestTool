@@ -1,5 +1,7 @@
 /RequestTool/obj
 /RequestTool/bin
-/CsharpHttpHelper/obj
-/CsharpHttpHelper/bin
+/ConvertTool/obj
+/ConvertTool/bin
+/ConvertTool.Service/obj
+/ConvertTool.Service/bin
 /.vs

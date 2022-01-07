@@ -1,0 +1,16 @@
+﻿[
+  {
+    "name": "MyOA.URIResource.Node",
+    "type": "ConvertTool.Node",
+    "assembly": "ConvertTool",
+    "property": {
+      "AssemblyDefault": "ConvertTool",
+      "Prefix": {
+      "rpc/converttool.service": "domain/ConvertTool.Service"
+      },
+      "KV": {
+      }
+    },
+    "mode": "singleton"
+  }
+]
